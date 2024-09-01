@@ -19,34 +19,6 @@
                 top: 0px;
                 left: 0px;
             }
-			
-			canvas:focus { 
-				outline: none; 
-			   } 
-			   html, body { 
-				width: 100%; 
-				height: 100%; 
-				padding: 0px; 
-				margin: 0px; 
-				/* Отключаем скролл и лонгтап на IOS */ 
-				overflow: hidden; 
-				-webkit-touch-callout: none; 
-				-webkit-user-select: none; 
-				-khtml-user-select: none; 
-				-moz-user-select: none; 
-				-ms-user-select: none; 
-				user-select: none; 
-				-webkit-tap-highlight-color: rgba(0,0,0,0); 
-			   } 
-			 .fullscreen { 
-			 background: #383838; 
-			 width: 100%; 
-			 height: 100%; 
-			 position: absolute; 
-			 top: 0px; 
-			 left: 0px; 
-			 }
- 
             #banner-container {
                 position: absolute;
                 bottom: 0px;
@@ -184,11 +156,11 @@
                         createUnityInstance(
                             canvas,
                             {
-                                dataUrl: 'Build/7b29fcc736db469a5e043e37d9062abe.data.unityweb',
-                                frameworkUrl: 'Build/611a9511adcdcdc621eb12272f8e23d9.framework.js.unityweb',
-                                codeUrl: 'Build/a4d816bf8042addf88a7cb04da796a58.wasm.unityweb',
+                                dataUrl: 'Build/59576b594105c65b151b2046a162524f.data.unityweb',
+                                frameworkUrl: 'Build/29e56382462892241e148bda74cdae79.framework.js.unityweb',
+                                codeUrl: 'Build/c41bc3ece6d23ad5b606b622579e0e27.wasm.unityweb',
                                 streamingAssetsUrl: 'StreamingAssets',
-                                companyName: 'Almazik02',
+                                companyName: 'Car.Crash.Simulator.Sandbox',
                                 productName: 'CarCrash',
                                 productVersion: '0.1',
                                 // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
@@ -238,16 +210,6 @@
 
             window.sendMessageToPlatform = function(message) {
                 bridge.platform.sendMessage(message)
-            }
-
-            window.getServerTime = function() {
-                bridge.platform.getServerTime()
-                    .then(result => {
-                        sendMessageToUnity('OnGetServerTimeCompleted', result.toString())
-                    })
-                    .catch(error => {
-                        sendMessageToUnity('OnGetServerTimeCompleted', 'false')
-                    })
             }
 
 
@@ -446,16 +408,6 @@
 
             window.showRewarded = function() {
                 bridge.advertisement.showRewarded()
-            }
-
-            window.checkAdBlock = function() {
-                bridge.advertisement.checkAdBlock()
-                    .then(result => {
-                        sendMessageToUnity('OnCheckAdBlockCompleted', result.toString())
-                    })
-                    .catch(error => {
-                        sendMessageToUnity('OnCheckAdBlockCompleted', 'false')
-                    })
             }
 
 
